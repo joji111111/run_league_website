@@ -1,0 +1,91 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Run League Website Admin</title>
+  <link rel="stylesheet" href="admin.css">
+</head>
+<body>
+  <main class="shell">
+    <section id="login-panel" class="panel">
+      <h1>Run League Website Admin</h1>
+      <p>System administrator access only.</p>
+
+      <form id="login-form">
+        <label>Email
+          <input id="email" type="email" required autocomplete="username">
+        </label>
+        <label>Password
+          <input id="password" type="password" required autocomplete="current-password">
+        </label>
+        <button type="submit">Sign in</button>
+        <p id="login-message" class="message"></p>
+      </form>
+    </section>
+
+    <section id="admin-panel" class="hidden">
+      <header class="toolbar">
+        <div>
+          <h1>Website Management</h1>
+          <p id="signed-in-user"></p>
+        </div>
+        <button id="logout-button" class="secondary">Sign out</button>
+      </header>
+
+      <section class="panel">
+        <h2>APK Download</h2>
+        <form id="apk-form">
+          <label>APK / Expo Build URL
+            <input id="apk-url" type="url" placeholder="https://expo.dev/..." required>
+          </label>
+          <button type="submit">Update APK URL</button>
+          <p id="apk-message" class="message"></p>
+        </form>
+      </section>
+
+      <section class="panel">
+        <h2>Add Website Review</h2>
+        <form id="review-form" class="grid">
+          <label>Name
+            <input id="review-name" required>
+          </label>
+          <label>Role
+            <input id="review-role" value="Runner">
+          </label>
+          <label>Rating
+            <select id="review-rating">
+              <option value="5">5</option>
+              <option value="4">4</option>
+              <option value="3">3</option>
+              <option value="2">2</option>
+              <option value="1">1</option>
+            </select>
+          </label>
+          <label class="full">Review
+            <textarea id="review-text" required rows="4"></textarea>
+          </label>
+          <label class="checkbox full">
+            <input id="review-visible" type="checkbox">
+            Show immediately on public website
+          </label>
+          <button class="full" type="submit">Add Review</button>
+        </form>
+        <p id="review-message" class="message"></p>
+      </section>
+
+      <section class="panel">
+        <div class="section-heading">
+          <h2>Website Reviews</h2>
+          <button id="refresh-reviews" class="secondary">Refresh</button>
+        </div>
+        <div id="admin-reviews"></div>
+      </section>
+    </section>
+  </main>
+
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+  <script src="supabase-config.js"></script>
+  <script src="admin.js"></script>
+</body>
+</html>
