@@ -6,12 +6,6 @@
   margin-bottom: 12px;
 }
 
-#apk-qr img,
-#apk-qr canvas {
-  max-width: 140px;
-  height: auto;
-}
-
 /* Editable image placeholders */
 .hero-art:before,.hero-art:after{display:none!important}
 .image-placeholder{border:2px dashed #b7c1cc;background:#fff;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;color:#4f5965;gap:8px}
