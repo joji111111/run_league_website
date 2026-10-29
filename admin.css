@@ -1,0 +1,265 @@
+
+:root {
+  --bg: #f5f7fb;
+  --panel: #ffffff;
+  --text: #111827;
+  --muted: #6b7280;
+  --border: #e5e7eb;
+  --primary: #0878f9;
+  --primary-dark: #0667d8;
+  --danger: #dc2626;
+  --shadow: 0 8px 24px rgba(15, 23, 42, 0.06);
+  font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--text);
+}
+
+.shell {
+  width: min(1050px, calc(100% - 32px));
+  margin: 40px auto;
+}
+
+.panel {
+  background: var(--panel);
+  border: 1px solid var(--border);
+  border-radius: 18px;
+  padding: 24px;
+  margin-bottom: 24px;
+  box-shadow: var(--shadow);
+}
+
+.hidden {
+  display: none !important;
+}
+
+h1, h2, h3, p {
+  margin-top: 0;
+}
+
+h1 {
+  margin-bottom: 6px;
+  font-size: 2rem;
+}
+
+h2 {
+  margin-bottom: 8px;
+  font-size: 1.25rem;
+}
+
+p {
+  color: var(--muted);
+  line-height: 1.5;
+}
+
+label {
+  display: grid;
+  gap: 8px;
+  margin-bottom: 16px;
+  font-weight: 600;
+  color: var(--text);
+}
+
+input,
+select,
+textarea {
+  width: 100%;
+  padding: 12px 14px;
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  background: #fff;
+  color: var(--text);
+  font: inherit;
+  outline: none;
+  transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+input:focus,
+select:focus,
+textarea:focus {
+  border-color: var(--primary);
+  box-shadow: 0 0 0 3px rgba(8, 120, 249, 0.12);
+}
+
+button {
+  border: 0;
+  border-radius: 10px;
+  padding: 11px 16px;
+  background: var(--primary);
+  color: white;
+  font: inherit;
+  font-weight: 700;
+  cursor: pointer;
+  transition: background 0.2s ease, transform 0.05s ease;
+}
+
+button:hover {
+  background: var(--primary-dark);
+}
+
+button:active {
+  transform: translateY(1px);
+}
+
+button.secondary {
+  background: #111827;
+}
+
+button.secondary:hover {
+  background: #000;
+}
+
+.toolbar,
+.section-heading {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+}
+
+.toolbar {
+  margin-bottom: 24px;
+}
+
+.toolbar h1 {
+  margin-bottom: 2px;
+}
+
+#signed-in-user {
+  margin: 0;
+  font-size: 0.95rem;
+}
+
+.message {
+  min-height: 18px;
+  margin: 10px 0 0;
+  color: #166534;
+  font-size: 0.95rem;
+}
+
+.message.error {
+  color: var(--danger);
+}
+
+#login-panel {
+  max-width: 520px;
+  margin: 90px auto 0;
+}
+
+#admin-panel {
+  padding-bottom: 32px;
+}
+
+.review-summary {
+  margin: 8px 0 18px;
+  padding: 10px 12px;
+  border-radius: 10px;
+  background: #eef5ff;
+  color: #1d4ed8;
+  font-weight: 600;
+}
+
+#admin-reviews {
+  display: grid;
+  gap: 14px;
+}
+
+.admin-review {
+  display: grid;
+  grid-template-columns: 1fr auto;
+  gap: 18px;
+  align-items: center;
+  padding: 18px;
+  border: 1px solid var(--border);
+  border-radius: 14px;
+  background: #fff;
+}
+
+.admin-review strong {
+  display: inline-block;
+  margin-bottom: 2px;
+  font-size: 1rem;
+}
+
+.admin-review p {
+  margin: 10px 0;
+  color: #374151;
+}
+
+.admin-review small {
+  color: var(--muted);
+}
+
+.review-actions {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  min-width: 160px;
+}
+
+.review-actions button {
+  white-space: nowrap;
+  min-width: 150px;
+}
+
+#apk-form {
+  display: grid;
+  grid-template-columns: 1fr auto;
+  gap: 12px;
+  align-items: end;
+}
+
+#apk-form label {
+  margin: 0;
+}
+
+#apk-form button {
+  height: 44px;
+}
+
+#apk-message {
+  grid-column: 1 / -1;
+}
+
+@media (max-width: 760px) {
+  .shell {
+    width: min(100% - 20px, 1050px);
+    margin: 20px auto;
+  }
+
+  .panel {
+    padding: 18px;
+    border-radius: 14px;
+  }
+
+  .toolbar,
+  .section-heading {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  #apk-form {
+    grid-template-columns: 1fr;
+  }
+
+  .admin-review {
+    grid-template-columns: 1fr;
+    align-items: stretch;
+  }
+
+  .review-actions {
+    justify-content: stretch;
+    min-width: 0;
+  }
+
+  .review-actions button {
+    width: 100%;
+  }
+}
