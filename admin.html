@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>Run League Website Admin</title>
+<link rel="stylesheet" href="admin.css">
+</head>
+<body>
+<main class="admin-shell">
+<section id="loginPanel" class="admin-card">
+  <p class="eyebrow">RUN LEAGUE</p>
+  <h1>Website Admin</h1>
+  <p>System administrator access only.</p>
+  <form id="loginForm">
+    <label>Email<input id="email" type="email" required autocomplete="username"></label>
+    <label>Password<input id="password" type="password" required autocomplete="current-password"></label>
+    <button type="submit">Sign In</button>
+    <p id="loginMessage" class="message"></p>
+  </form>
+</section>
+
+<section id="adminPanel" class="hidden">
+  <div class="admin-toolbar admin-card">
+    <div><p class="eyebrow">RUN LEAGUE</p><h1>Website Management</h1><p id="signedInUser"></p></div>
+    <button id="logoutButton" class="secondary" type="button">Sign Out</button>
+  </div>
+
+  <section class="admin-card">
+    <h2>APK Download</h2>
+    <p>Update this once after each new Expo/EAS build. The public QR code updates automatically.</p>
+    <form id="apkForm">
+      <label>APK / Expo Build URL<input id="apkUrl" type="url" placeholder="https://expo.dev/..." required></label>
+      <button type="submit">Update Download Link</button>
+      <p id="apkMessage" class="message"></p>
+    </form>
+  </section>
+
+  <section class="admin-card">
+    <h2>Add Website Review</h2>
+    <form id="reviewForm" class="admin-grid">
+      <label>Name<input id="reviewName" required></label>
+      <label>Role<input id="reviewRole" value="Runner"></label>
+      <label>Rating<select id="reviewRating"><option>5</option><option>4</option><option>3</option><option>2</option><option>1</option></select></label>
+      <label class="full">Review<textarea id="reviewText" rows="4" required></textarea></label>
+      <label class="check full"><input id="reviewVisible" type="checkbox"> Show immediately on the public website</label>
+      <button class="full" type="submit">Add Review</button>
+    </form>
+    <p id="reviewMessage" class="message"></p>
+  </section>
+
+  <section class="admin-card">
+    <div class="section-head"><h2>Website Reviews</h2><button id="refreshReviews" class="secondary" type="button">Refresh</button></div>
+    <div id="adminReviews">Loading...</div>
+  </section>
+</section>
+</main>
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+<script src="supabase-config.js"></script>
+<script src="admin.js"></script>
+</body></html>
